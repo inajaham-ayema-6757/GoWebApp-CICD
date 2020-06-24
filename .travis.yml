@@ -15,7 +15,7 @@ script:
     #- yarn test
     #- yarn build
     - docker build -t ameyamahajani6757/ameya6757 .
-    - docker tag ameyamahajani6757/ameya28 registry.heroku.com/$HEROKU_APP_NAME/web
+    - docker tag ameyamahajani6757/ameya6757 registry.heroku.com/$HEROKU_APP_NAME/web
 
 deploy:
     provider: script
