@@ -1,0 +1,27 @@
+sudo: required
+
+language: go
+
+services:
+    - docker
+
+before_install:
+    - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+install:
+    - yarn install
+script:
+    #- yarn test
+    #- yarn build
+    - docker build -t ameyamahajani6757/ameya6757 .
+    - docker tag ameyamahajani6757/ameya28 registry.heroku.com/$HEROKU_APP_NAME/web
+
+deploy:
+    provider: script
+    script:
+        docker push ameyamahajani6757/ameya6757;
+        docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+        heroku container:release web --app $HEROKU_APP_NAME
+    branch: master
+
