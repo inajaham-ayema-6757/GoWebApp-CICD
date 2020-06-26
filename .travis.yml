@@ -12,6 +12,7 @@ before_install:
 install:
     - yarn install
 script:
+    - go test -v ./...
     #- yarn test
     #- yarn build
     - docker build -t ameyamahajani6757/ameya6757 .
