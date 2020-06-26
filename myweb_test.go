@@ -9,7 +9,6 @@ func Test1_greeting(t *testing.T) {
 	if greet != "Howdy Folks..xD!!!" {
 		t.Errorf("Unexpected Output from greeting function, got: %s, want: %s.", greet, "Howdy Folks..xD!!!")
 	}
-}
 
 func Test2_introduction(t *testing.T) {
 	intro_msg := greeting()
