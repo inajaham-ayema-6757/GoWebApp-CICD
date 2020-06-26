@@ -11,7 +11,7 @@ func Test1_greeting(t *testing.T) {
 	}
 
 func Test2_introduction(t *testing.T) {
-	intro_msg := greeting()
+	intro_msg := introduction()
 	if intro_msg != "My name is Ameya Makarand Mahajani" {
 		t.Errorf("Unexpected Output from introduction function, got: %s, want: %s.", intro_msg, "My name is Ameya Makarand Mahajani")
 	}
